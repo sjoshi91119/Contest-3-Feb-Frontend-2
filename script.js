@@ -58,7 +58,7 @@ function createRow() {
 }
 
 
-// Function to save a row
+// Function to save row
 function saveRow(event) {
   let button = event.target;
   let row = button.parentNode.parentNode;
@@ -75,7 +75,7 @@ function saveRow(event) {
   let marks = marksInput.value;
   let markedBy = markedByInput.value;
 
-  // Validate input fields
+  // check input fields
   if (!name || !roll || !subject || !marks || !markedBy) {
     // Show error for unfilled input
     row.style.border = "2px double red";
@@ -85,41 +85,23 @@ function saveRow(event) {
     row.style.border = "";
   }
 
-  // // Validate email field
-  // if (!isValidEmail(markedBy)) {
-  //   markedByInput.setCustomValidity("Please enter a valid email address");
-  //   markedByInput.classList.add("error");
-  //   return;
-  // } else {
-  //   markedByInput.setCustomValidity("");
-  //   markedByInput.classList.remove("error");
-  // }
+  // Save data to tableData array (Will work on it)
+  // let newRowData = {
+  //   id: newRowId,
+  //   name: name,
+  //   roll: roll,
+  //   subject: subject,
+  //   marks: marks,
+  //   markedBy: markedBy,
+  // };
+  // tableData.push(newRowData);
 
-  // Save data to tableData array
-  let newRowData = {
-    id: newRowId,
-    name: name,
-    roll: roll,
-    subject: subject,
-    marks: marks,
-    markedBy: markedBy,
-  };
-  tableData.push(newRowData);
+  // // Log new row and tableData array to console
+  // console.log("New Row:", newRowData);
+  // console.log("Table Data:", tableData);
 
-  // Log new row and tableData array to console
-  console.log("New Row:", newRowData);
-  console.log("Table Data:", tableData);
-
-  // Disable editing of the row
-  nameInput.disabled = true;
-  rollInput.disabled = true;
-  subjectInput.disabled = true;
-  marksInput.disabled = true;
-  markedByInput.disabled = true;
-  button.disabled = true;
 }
 
-
-// Add event listener to the "Create a new row" button
+// Create a new row 
 let addRowButton = document.getElementById("add-row-btn");
 addRowButton.addEventListener("click", createRow);
